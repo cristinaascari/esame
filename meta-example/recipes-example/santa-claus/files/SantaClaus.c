@@ -98,7 +98,7 @@ void *esegui_Renna(void *id)
 		exit(-1);
 	}
 	printf("Thread%d partito: ho come identificatore %lu, sono una renna \n", *pi, pthread_self());
-	sleep(30);
+	sleep(1);
 	sem_wait(&mutex);
 	Renne_arrivate += 1;
 	if(Renne_arrivate == 9){
@@ -194,7 +194,7 @@ int main (int argc, char **argv)
    	{
 		if(i==0){
 			taskids[i] = i;
-   			printf("Sto per creare il thread %d-esimo\n", taskids[i]);
+   			sprintf("Sto per creare il thread %d-esimo\n", taskids[i]);
         		if (pthread_create(&thread[i], NULL, esegui_Babbo_Natale , (void *) (&taskids[i])) != 0)
         		{
         	        	sprintf(error,"SONO IL MAIN E CI SONO STATI PROBLEMI DELLA CREAZIONE DEL thread %d-esimo\n", taskids[i]);
@@ -225,7 +225,7 @@ int main (int argc, char **argv)
 		}
     	}
 	/*Il main aspetta le renne e Babbo Natale*/
-   	for (i=1; i <= 10; i++)
+   	for (i=0; i < 10; i++)
    	{
 		int ris;
    		pthread_join(thread[i], (void**) & p);
