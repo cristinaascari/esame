@@ -98,7 +98,7 @@ void *esegui_Renna(void *id)
 		exit(-1);
 	}
 	printf("Thread%d partito: ho come identificatore %lu, sono una renna \n", *pi, pthread_self());
-	sleep(1);
+	sleep(30);
 	sem_wait(&mutex);
 	Renne_arrivate += 1;
 	if(Renne_arrivate == 9){
